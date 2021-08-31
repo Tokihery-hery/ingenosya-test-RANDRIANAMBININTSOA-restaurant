@@ -1,0 +1,90 @@
+.grid-container {
+  margin: 20px;
+}
+.grid-container h1.mat-h1{
+  /*color: #fff;*/
+  font-family: cursive;
+  vertical-align: middle;
+}
+
+.foods-card {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.foods-card-content {
+  text-align: center;
+}
+.header, .foods-form{
+  width: 100%;
+  background: inherit;
+  border-radius: 5px;
+  box-shadow: #8e818124 0 5px 16px 4px;
+  padding: 3px 10px;
+}
+
+.menu-spacer{
+  flex: 1 1 auto;
+}
+.foods-form{
+  padding: 20px;
+  max-width: 514px;
+  margin-top: 100px;
+}
+.ingredient-add, 
+.foods-form-content,
+.footer-form{
+  width: 100%;
+}
+
+mat-form-field{
+  vertical-align: middle;
+}
+
+.foods-form-content{
+  position: relative;
+  /*margin: auto;*/
+  text-align: center;
+}
+.foods-img{
+  position:relative;
+  margin-top: -100px;
+  padding: 20px;
+
+}
+.foods-img input{
+  position: absolute;
+    height: 237px;
+    /* left: -124px; */
+    width: 281px;
+    right: -68px;
+    margin-left: 54px;
+    border-radius: 31px;
+    opacity: 0;
+
+}
+.foods-img img.img{
+  width: 70%;
+  height: auto; 
+  vertical-align: middle;
+  border-radius: 25px;
+  box-shadow: lightgrey 2px 3px 1px 0px;
+}
+.ingredient-add h1.mat-h1{
+  text-align: center;
+  color: red;
+}
+.form-action{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

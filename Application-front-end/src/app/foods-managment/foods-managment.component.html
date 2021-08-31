@@ -1,0 +1,77 @@
+<div class="grid-container" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+  <div class="header" fxLayout="row nowrap" fxLayoutGap="10px"
+      fxLayoutAlign="space-evenly">
+  	<h1 class="mat-h1">Foods</h1>
+  	<span class="menu-spacer"></span>
+  	<button mat-raised-button color="primary"><mat-icon>add</mat-icon>Add new foods</button>
+  	<button mat-raised-button color="success"><mat-icon>add</mat-icon>Create Ingredient</button>
+  </div>
+
+	<div class="foods-form" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+	  <form [formGroup]="foods" class="foods-form-content">
+	  	<div class="foods-img" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
+	  		<img mat-card-image class="img"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+	  		<input type="file" style="opacity: 1;">
+	  	</div>
+				<div class="foods-info" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+					  	<mat-form-field appearance="fill">
+					      <mat-label>Repas Name</mat-label>
+					      <input matInput formControlName="name" placeholder="Repas Name">
+					    </mat-form-field>
+				</div>
+	  	<ng-container class="ingredient-add" formArrayName="ingredients">
+	  		<h1 class="mat-h1">Ajout ingredient</h1>
+	  		<ng-container *ngFor="let ingredientsForm of ingredients.controls; let i = index">
+		  		<div [formGroupName]="i" class="ingredient-form"  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
+				    <mat-form-field class="example-full-width" appearance="fill">
+					    <mat-label>{{i+1}}- Ingredient name</mat-label>
+					    <input matInput
+					           aria-label="State"
+					           [matAutocomplete]="auto"
+					           formControlName="product_name"
+					           (ngModelChange)= 'onChangeProduct($event)'
+					           >
+					    <mat-autocomplete #auto="matAutocomplete">
+					      <mat-option *ngFor="let product of productListfiltered" [value]="product.name">
+					        <img class="option-img" aria-hidden [src]="product.flag" height="25">
+					        <span>{{product.name}}</span> |
+					        <small>Dispo: {{product.quantity_available}}</small>
+					      </mat-option>
+					      <mat-option *ngIf="productListfiltered.length <1">
+					        	<span>No found</span> |
+						        <button mat-raised-button (click)="makeSale()">Acheter</button>
+					      </mat-option>
+					    </mat-autocomplete>
+					 </mat-form-field>
+
+				    <mat-form-field appearance="fill">
+					    <mat-label>Quantity</mat-label>
+					    <input type="number" 
+						    formControlName="quantity"
+						    matInput placeholder="Put here a quantity neccessary"
+						>
+				    </mat-form-field>
+			     	<button mat-icon-button color="warn" (click)="removeIngredient(i)"><mat-icon>delete_forever</mat-icon></button>
+		  		</div>
+	  		</ng-container>
+		</ng-container>
+	   <div class="form-action" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+	   	<button mat-fab color="success" (click)="addIngredient()"><mat-icon>add</mat-icon></button>
+	   </div>
+	  </form>
+    <div class="footer-form" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="end">
+    		<button mat-raised-button color="primary" (click)="addAndNewFood()">Add and Create new</button>
+    		<button mat-raised-button (click)="addAndSeeFoodDetails()">Add and See info</button>
+
+    </div>
+	</div>
+	<div class="foods-form" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+	 
+	</div>
+</div>

@@ -1,0 +1,69 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/Application-back-end/dist
+/Application-back-end/tmp
+/Application-back-end/out-tsc
+
+/Appliaction-front-end/dist
+/Appliaction-front-end/tmp
+/Appliaction-front-end/out-tsc
+
+# dependencies
+/Application-back-end/node_modules
+/Appliaction-front-end/node_modules
+
+# Only exists if Bazel was run
+/Appliaction-front-end/bazel-out
+/Application-back-end/bazel-out
+
+npm-debug.log
+yarn-error.log
+testem.log
+/Appliaction-front-end/typings
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/Application-back-end/.idea
+/Appliaction-front-end/.idea
+
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/Application-back-end/.sass-cache
+/Application-back-end/connect.lock
+/Application-back-end/coverage
+/Application-back-end/libpeerconnection.log
+
+/Appliaction-front-end/.sass-cache
+/Appliaction-front-end/connect.lock
+/Appliaction-front-end/coverage
+/Appliaction-front-end/libpeerconnection.log
+
+npm-debug.log
+yarn-error.log
+testem.log
+/Application-back-end/typings
+/Application-front-end/typings
+
+
+# System Files
+.DS_Store
+Thumbs.db
+
+
