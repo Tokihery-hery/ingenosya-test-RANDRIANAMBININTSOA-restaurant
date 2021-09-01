@@ -1,0 +1,55 @@
+
+input{
+  opacity: 0;
+}
+
+.attachment{
+    transition: all .5s;
+    border: none;
+    outline: none;
+    opacity: 0;
+    position: absolute;
+    right: calc(81px - 2%);
+    top: 0px;
+    border-top-right-radius: 25px;
+}
+.attachment mat-icon{
+  top: 25px;
+  position: absolute;
+  right: 29px;
+  cursor: pointer;
+  color: blue;
+
+}
+img.img{
+    width: inherit;
+    /* height: 31%; */
+    vertical-align: middle;
+    border-radius: 23px;
+    margin: 0 3%;
+    box-shadow: #eaeaea 0px 0px 12px 3px;
+    position: inherit;
+
+}
+.uploader{
+  position: relative;
+  width: inherit;
+  display: block;
+}
+.progress{
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.cancel-upload{
+  top: -12px;
+  position: relative;
+  cursor: pointer;
+}
+
+@media (max-width: 660px){
+  .attachment{
+    right: calc(11px - 1%);
+  }
+}

@@ -14,3 +14,14 @@ button mat-icon{
 .menu-spacer{
   flex: 1 1 auto;
 }
+.h-ligthgrey {
+  color: lightgrey;
+  }
+  .bold-size{
+    font-size: bold;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.foods-img:hover .attachment{
+  opacity: 1;
+}

@@ -1,0 +1,58 @@
+.foods-cat .img img{
+	height: inherit;
+	width: inherit;	
+	box-shadow: lightgrey 0 0 6px 2px;
+	border-radius: 5px;
+	margin-top: -100px;
+	border-top-left-radius: 23%;
+	border-top-right-radius: 23%;
+}
+.img{
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.foods-cat{
+	max-width: 170px;
+	text-align: center;
+	position: relative;
+	background: white;
+	box-shadow: lightgrey 0 0 5px 1px;
+	width: 100%;
+	margin: 100px auto auto auto;
+	padding: 0 6px;
+	border-bottom-left-radius: 12%;
+	border-bottom-right-radius: 12%;
+	border-top-left-radius: 3%;
+	border-top-right-radius: 3%;
+	transition: all .5S;
+	font-weight: bold;
+	line-height: 1.1;
+	cursor: pointer;
+
+}
+.foods-cat:hover{
+	transform: scale(1.03);
+	rotate: 20deg;
+
+}
+.description{
+	width: 100%;
+	margin: auto;
+	background: #ffffff7a;
+    text-align: center;
+    position: relative;
+}
+h3.mat-h3{
+	font-weight: bold;
+}
+.description .curency-unit{
+	color: yellowgreen;
+	font-size: 12px;
+	font-weight: bold;
+}
+.add-cart{
+    position: absolute;
+    right: -5px;
+    bottom: 6px;
+}

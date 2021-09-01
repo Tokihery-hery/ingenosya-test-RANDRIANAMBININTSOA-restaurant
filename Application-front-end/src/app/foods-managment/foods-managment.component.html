@@ -11,9 +11,8 @@
 	<div class="foods-form" fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="center">
 	  <form [formGroup]="foods" class="foods-form-content">
-	  	<div class="foods-img" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
-	  		<img mat-card-image class="img"  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-	  		<input type="file" style="opacity: 1;">
+	  	<div class="foods-img"  title="Food's picture" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
+	  		<app-upload-file ></app-upload-file>
 	  	</div>
 				<div class="foods-info" fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="center">
@@ -54,24 +53,36 @@
 						    matInput placeholder="Put here a quantity neccessary"
 						>
 				    </mat-form-field>
-			     	<button mat-icon-button color="warn" (click)="removeIngredient(i)"><mat-icon>delete_forever</mat-icon></button>
+			     	<button mat-icon-button color="warn" (click)="removeIngredient(i)" title="remove"><mat-icon >delete_forever</mat-icon></button>
 		  		</div>
 	  		</ng-container>
 		</ng-container>
 	   <div class="form-action" fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="center">
-	   	<button mat-fab color="success" (click)="addIngredient()"><mat-icon>add</mat-icon></button>
+	   	<button mat-fab color="success" title="Add Ingredient" (click)="addIngredient()"><mat-icon>add</mat-icon></button>
 	   </div>
 	  </form>
     <div class="footer-form" fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="end">
     		<button mat-raised-button color="primary" (click)="addAndNewFood()">Add and Create new</button>
     		<button mat-raised-button (click)="addAndSeeFoodDetails()">Add and See info</button>
-
     </div>
 	</div>
-	<div class="foods-form" fxLayout="row wrap" fxLayoutGap="10px"
+	<div fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="center">
+      <app-visualize-ingredient-needs [data]="data"></app-visualize-ingredient-needs>
+	 
+	</div>
+
+		<div fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+      <app-visualize-ingredient-needs [data]="data"></app-visualize-ingredient-needs>
+	 
+	</div>
+
+			<div fxLayoutGap="10px"
+      fxLayoutAlign="center">
+      <!-- <app-foods-catalogue [items]="items"></app-foods-catalogue> -->
 	 
 	</div>
 </div>

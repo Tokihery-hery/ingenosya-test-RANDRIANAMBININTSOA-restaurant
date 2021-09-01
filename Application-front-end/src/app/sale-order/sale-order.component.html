@@ -1,0 +1,175 @@
+
+
+<div class="sale-order" fxLayout="row wrap" fxLayoutGap="0px"
+	      fxLayoutAlign="space-evenly">
+	<div class="list-food-available-order" fxLayout="row wrap" fxLayoutGap="0px"
+	      fxLayoutAlign="start">
+	      <div class="search-bar" fxLayout="row wrap" fxLayoutGap="0px"
+	      fxLayoutAlign="start">
+			<mat-form-field appearance="outline">
+			    <mat-label>Enter name foods</mat-label>
+			    <input matInput  type="search" placeholder="Foods name">
+			    <mat-icon matSuffix>search</mat-icon>
+			    <mat-hint *ngIf="false">Hint</mat-hint>
+			  </mat-form-field>
+			<span class="menu-spacer"></span>
+			  <button mat-button [matMenuTriggerFor]="menu" color="accent"><mat-icon color="success">more_vert</mat-icon></button>
+				<mat-menu #menu="matMenu">
+				  <button mat-menu-item (click)="active()">Item 1</button>
+				  <button mat-menu-item>Item 2</button>
+			</mat-menu>
+		</div>
+		<div class="categeory-foods" fxLayout="row nowrap" fxLayoutGap="0px"
+	      fxLayoutAlign="start">
+			<mat-chip-list aria-label="Fish selection" fxLayout="row nowrap" fxLayoutGap="0px"
+	      fxLayoutAlign="start">
+			  <mat-chip>One fish</mat-chip>
+			  <mat-chip>Two fish</mat-chip>
+			    <mat-chip>One fish</mat-chip>
+			  <mat-chip>Two fish</mat-chip>
+			    <mat-chip>One fish</mat-chip>
+			  <mat-chip>Two fish</mat-chip>
+			  <mat-chip color="primary" selected>Primary fish</mat-chip>
+			  <mat-chip color="accent" selected>Accent fish</mat-chip>
+			</mat-chip-list>
+		</div>
+		<h3 class="mat-h3" class="title-foods">Foods lists</h3>
+		<div class="catalogue" fxLayout="row wrap" fxLayoutGap="4px"
+	      fxLayoutAlign="start">
+			<div class="catalogue-list" *ngFor="let food of foods">
+				<app-foods-catalogue [items]="food"></app-foods-catalogue>			
+			</div>
+		</div>
+		<div class="footer-bar" fxLayout="row wrap" fxLayoutGap="0px"
+	      fxLayoutAlign="start">
+			
+		</div>
+	</div>
+	<div class="foods" [ngClass]="isActif?'show':'hidden'">
+		<div class="foods-title" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="center">
+			<span class="menu-spacer"></span>
+			<h3 class="mat-h3">{{items.name}}</h3>
+			<span class="menu-spacer"></span>
+			<button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+	        <mat-icon>more_vert</mat-icon>
+	      </button>
+		</div>
+
+		<div class="foods-rate" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="space-evenly">
+			<span class="mat-h3"><mat-icon>star</mat-icon>4.6</span>
+			<span><mat-icon>data_usage</mat-icon>45 Calories</span>
+
+			<span class="mat-h3"><mat-icon>access_time</mat-icon>20-30min</span>
+		</div>
+		
+		<div class="img" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="center">
+			<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgiqq1zeVw3Ghu_2Xb6EtcoOyAM9tYhH3vQ&usqp=CAU"> -->
+			<img src={{items.images}}>
+			<span class="order-increment" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="center">
+			<span  class="button ment" (click)="desincrement(0)" color="accent"><mat-icon>remove</mat-icon></span>
+			<strong>{{qty}}</strong>
+			<span  class="button ment" (click)="increment(0)" color="accent"><mat-icon>add</mat-icon></span>
+			</span>
+		</div>
+
+		<div class="foods-detail" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="space-between">
+			<span class="mat-h1">Details</span>
+			<h1><span class="curency-unit">Ar</span> {{items.price | currency:' '}}</h1>
+		</div>
+		<p class="mat-p" *ngIf="items.description">{{items.description}}</p>
+
+		<div class="description" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="center">
+			<h1 class="bold-size mat-h1" class="mat-h3">Ingredients</h1>
+			<span class="menu-spacer"></span>
+
+			<div class="foods-ingredient" fxLayout="row nowrap" fxLayoutGap="10px"
+		      fxLayoutAlign="center">
+				<span class="mat-h3"><img src={{items.images}}>Epice</span>
+				<span class="mat-h3"><img src={{items.images}}>Pincile</span>
+				<span class="mat-h3"><img src={{items.images}}>Salade</span>
+				<span class="mat-h3"><img src={{items.images}}>Lait</span>
+				<span class="mat-h3"><img src={{items.images}}>Ouef</span>
+				<span class="mat-h3"><img src={{items.images}}></span>	
+				<span class="mat-h3"><img src={{items.images}}></span>
+			</div>
+			<button  mat-mini-fab class="add-ingredient" (click)="desincrement(0)" color="accent"><mat-icon>add_shopping_cart</mat-icon></button>
+		</div>
+	</div>
+	<div class="charge" [ngClass]="isActif?'show':'hidden'">
+		<div class="foods charge-content" fxLayout="row wrap" fxLayoutGap="10px"
+		      fxLayoutAlign="start">
+			<div class="charge-header" fxLayout="row wrap" fxLayoutGap="10px"
+		      fxLayoutAlign="center">
+				<span class="menu-spacer"></span>
+				<h3 class="mat-h3">Charge</h3>
+				<span class="menu-spacer"></span>
+				<button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+		        <mat-icon>more_vert</mat-icon>
+		      </button>
+			</div>
+			<div class="add-charge">
+					<span class="all-charge">
+				    <mat-checkbox class="select-all"
+				                  [checked]="allComplete"
+				                  [color]="charge.color"
+				                  [indeterminate]="someComplete()"
+				                  (change)="setAll($event.checked)">
+				      {{charge.name}}
+				    </mat-checkbox>
+				  </span>
+				<span class="list-charge">
+				    <ul>
+				      <li *ngFor="let subcharge of charge.subcharges">
+				        <mat-checkbox [(ngModel)]="subcharge.completed"
+				                      [color]="subcharge.color"
+				                      (ngModelChange)="updateAllComplete()">
+				          {{subcharge.name}}
+				        </mat-checkbox>
+				      </li>
+				    </ul>
+			  	</span>
+			</div>
+		</div>
+		<div class="list-order" fxLayout="row wrap" fxLayoutGap="0px"
+	      fxLayoutAlign="space-evenly">
+			<mat-list >
+			  <div mat-subheader>Commands</div>
+			  <mat-list-item *ngFor="let food of orders_foods">
+			    <mat-icon mat-list-icon>folder</mat-icon>
+			    <div mat-line>{{food.name}}</div>
+			    <div mat-line> {{food.quantity}} </div>
+			    <div class="remove-add" fxLayout="row nowrap" fxLayoutGap="5px"
+	      fxLayoutAlign="center">
+						<button   mat-icon-button class="add-ingredient" (click)="validateOrder()" color="accent"><mat-icon style="color: green;">add</mat-icon></button>
+						<button  mat-icon-button class="add-ingredient" (click)="validateOrder()" color="accent"><mat-icon style="color: red;">remove</mat-icon></button>
+			    </div>
+			  </mat-list-item>
+			  <mat-divider></mat-divider>
+			</mat-list>
+		</div>
+
+		<div class="info-price" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="space-evenly">
+					<div>
+						<h3 class="mat-h3">Quantité</h3>
+						<span class="mat-h3">{{qty}}</span>
+					</div>
+					<div>
+						<h3 class="mat-h3">Total</h3>
+						<span class="mat-h1">{{qty * 500 | currency:'Ar '}}</span>
+					</div>
+		</div>
+		<div class="action" fxLayout="row wrap" fxLayoutGap="10px"
+	      fxLayoutAlign="space-evenly">
+			<button  mat-raised-button class="add-ingredient" (click)="validateOrder()" color="accent"><mat-icon style="color: green;">done_all</mat-icon> Valide</button>
+			<button  mat-raised-button class="add-ingredient" (click)="setWaiting()" color="primary"><mat-icon>arrow_back</mat-icon>Mettre en entente</button>	
+		</div>
+
+	</div>
+</div>

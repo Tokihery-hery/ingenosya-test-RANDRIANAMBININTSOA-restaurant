@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
@@ -53,6 +54,8 @@ Route::post('/product', [ProductController::class, 'createProduct']);
 Route::delete('/product', [ProductController::class, 'createProduct']);
 
 
+//uploadfile
+Route::post('/upload', [Controller::class, 'uploadimage']);
 
 
 

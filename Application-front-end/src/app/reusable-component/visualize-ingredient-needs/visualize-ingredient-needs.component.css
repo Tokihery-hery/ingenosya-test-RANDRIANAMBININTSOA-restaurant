@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+.visualize{
+  padding: 5px 20px;
+}
+.visualize-header{
+  background: white;
+  padding: 4px 10px;
+}
+.image-visualize{
+    max-width: 70px;
+    height: auto;
+}

@@ -1,1 +1,17 @@
-<p>price-managment works!</p>
+<div class="price-main" fxLayout="row wrap" fxLayoutGap="10px"   fxLayoutAlign="center">
+		<div class="header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+
+		</div>
+		<div class="price-managment" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+
+			<div class="list-menu" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start" >
+				<div class="list-foods" *ngFor="let food of foods">
+					<app-foods-catalogue [items]="food"></app-foods-catalogue>
+				</div>		
+			</div>
+
+			<div class="history-menu" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">	
+					helellele
+			</div>
+		</div>
+</div>

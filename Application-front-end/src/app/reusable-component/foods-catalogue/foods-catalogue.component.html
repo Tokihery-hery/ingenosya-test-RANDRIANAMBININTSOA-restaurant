@@ -1,0 +1,17 @@
+<div class="foods-cat" *ngIf="items">
+	<div class="img" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+		<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgiqq1zeVw3Ghu_2Xb6EtcoOyAM9tYhH3vQ&usqp=CAU"> -->
+		<img src={{items.images}}>
+	</div>
+	<div class="description" fxLayout="row wrap" fxLayoutGap="10px"
+      fxLayoutAlign="center">
+		<h3 class="mat-h3">{{items.name}}</h3>
+		<p class="mat-p" *ngIf="items.description">{{items?.description!.length<30?items.description:items.description?.substr(0, 30)+'...'}}</p>
+		<h1 class="mat-h1">
+			<span class="curency-unit">Ar</span> {{items.price | currency:' '}}</h1>
+		<button  mat-mini-fab class="add-cart" (click)="addCart(items.id)" color="accent"><mat-icon>favorite</mat-icon></button>
+	</div>
+</div>
+
+

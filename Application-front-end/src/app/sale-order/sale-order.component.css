@@ -1,0 +1,228 @@
+li{
+	list-style: none;
+}
+.sale-order{
+	width: max-content;
+	background: white;
+	border-radius: 21px;
+	margin:20px  auto;
+	height: 100% !important;
+	box-shadow: lightgrey 0 0 3px 1px;
+	transition: all .7s;
+
+}
+.charge{
+	max-width: 224px;
+	transition: all .9s;
+
+}
+.charge-content{
+	border-top-right-radius: 21px;
+	border-bottom-right-radius: 0px !important;
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+	transition: all .9s;
+
+}
+.foods{
+	max-width: 400px;
+	background: white;
+	box-shadow: lightgrey 0 0 5px 2px;
+	/*margin: auto;*/
+	border-top-left-radius: 21px;
+	border-bottom-left-radius: 21px;
+	padding: 20px 10px 10px 10px;
+	position: relative;
+	transition: all .7s;
+
+}
+.hidden{
+	position: absolute;
+	right: -700px;
+}
+.show{
+	/*position: ;*/
+	right: 0px;
+}
+.img{
+	max-width: 400px;
+	margin: auto;
+
+}
+.img img{
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 8%;
+
+}
+.order-increment{
+	width: 100%;
+	background: #efefef;
+	width: fit-content;
+	padding: 2px 0px;
+	align-items: center !important;
+	box-shadow: lightgrey 0 0 5px 1px;
+}
+.order-increment .ment{
+	margin: 7px;
+	font-size: 14px;
+	outline: none;
+	border: none;
+	box-shadow: lightgrey 0 0 4px 1px;
+	border-radius: 5px;
+	cursor: pointer;
+	background: white;
+
+}
+.order-increment strong{
+	vertical-align: middle;
+	color: blueviolet;
+	font-size: 34px;
+
+}
+.foods-title h3{
+	font-weight: bold;
+	font-size: 34px;
+	color: #5f5858;
+
+}
+.foods-rate span{
+	color: lightgrey;
+	font-size: 14px;
+}
+.foods-rate mat-icon{
+	color: yellowgreen;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.foods-ingredient{
+	max-width: 400px;
+	overflow: auto;
+	border-radius: 23px;
+	padding: 10px;
+	margin-left: 34px;
+	place-content: stretch end !important;
+}
+.description{
+	position: relative;
+}
+.add-ingredient{
+	margin-top: -43px;
+	box-shadow: white 0 0 3px 1px;
+}
+.foods-ingredient span{
+	box-shadow: whitesmoke 0 0 4px 2px;
+	border-radius: 32px;
+	padding: 4px;
+	position: relative;
+	width: 90px;
+	text-align: center;
+	word-break: break-all;
+	color: lightgrey;
+}
+.foods-ingredient span img{
+	width: inherit;
+	border-radius: 32px;
+	vertical-align: middle;
+}
+.curency-unit{
+	color: yellowgreen;
+	font-size: 12px;
+	font-weight: bold;
+}
+.foods-detail h1{
+	font-size: 34px;
+	font-weight: bold;
+}
+.list-order{
+	max-height:373px;
+	overflow-x: auto;
+}
+.action{
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+.action button{
+	width: 100%;
+	margin: 0px 10px;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px lightgrey; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background:yellowgreen;
+}
+.remove-add button{
+	align-items: center;
+	vertical-align: middle;
+}
+
+.list-food-available-order{
+	min-width: 418px;
+    max-width: 418px;
+    margin: 0px auto 20px auto;
+}
+.catalogue{
+	max-height: 600px;
+    overflow-y: auto;
+}
+.catalogue-list{
+	/*width: 100%;*/
+	margin: 5px 15px;
+}
+
+
+/*//search bar*/
+
+.search-bar, .footer-bar{
+    background: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    border-top-left-radius: 21px;
+    border-top-right-radius: 21px;
+
+
+}
+.title-foods{
+	width: 100%;
+    margin-right: 4px;
+    font-size: xx-large;
+    padding: 7px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.search-bar>div{
+padding: 0px !important;
+}
+.mat-form-field-wrapper{
+	padding: 0 !important;
+}
+
+mat-form-field div.mat-form-field-wrapper  {
+  	padding: 0 !important;
+}
+
+
+.categeory-foods{
+    /* max-width: 660px; */
+    overflow-x: auto;
+    margin: 0 18px;
+    /*height: 41px;*/
+}

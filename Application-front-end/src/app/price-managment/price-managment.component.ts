@@ -12,4 +12,35 @@ export class PriceManagmentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  foods = [
+  {
+    'id':123, name:"Humberger", 
+  'description': "Tena milay ranag ity an Tena milay ranag ity anTena milay ranag ity anTena milay ranag ity anTena milay ranag ity an", 
+  'price':6780, 
+  'images':"/assets/humbergeur.jfif"}, 
+  {
+    'id':123, 
+    'name':"Humberger", 'description': "Tena milay ranag ity an Tena milay ranag ity anTena milay ranag ity anTena milay ranag ity anTena milay ranag ity an", 
+    'price':6780, 
+    'images':"/assets/humbergeur.jfif"
+  },
+  {
+    'id':123, 
+    'name':"Humberger", 'description': "Tena milay ranag ity an Tena milay ranag ity anTena milay ranag ity anTena milay ranag ity anTena milay ranag ity an", 
+    'price':6780, 
+    'images':"/assets/humbergeur.jfif"
+  },
+  {
+    'id':123, 
+    'name':"Humberger", 'description': "Tena milay ranag ity an Tena milay ranag ity anTena milay ranag ity anTena milay ranag ity anTena milay ranag ity an", 
+    'price':6780, 
+    'images':"/assets/humbergeur.jfif"
+  },
+  {
+    'id':123, 
+    'name':"Humberger", 'description': "Tena milay ranag ity an Tena milay ranag ity anTena milay ranag ity anTena milay ranag ity anTena milay ranag ity an", 
+    'price':6780, 
+    'images':"/assets/humbergeur.jfif"
+  }]
 }

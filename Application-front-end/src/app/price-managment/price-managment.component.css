@@ -1,0 +1,19 @@
+.price-main{
+	width: calc(100% - 21px);
+	margin: 20px;
+	position: relative;
+}
+.header{
+	box-shadow: lightgrey 0 0 4px 1px;
+	height: 45px;
+	margin: 5px auto;
+}
+.price-managment, .header{
+	background: white;
+	box-shadow: lightgrey 0 0 4px 1px;
+	margin: auto;
+	width: inherit;
+}
+.price-managment{
+	height: calc(100vh - 250px);
+}

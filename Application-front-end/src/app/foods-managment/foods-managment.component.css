@@ -59,25 +59,7 @@ mat-form-field{
   position:relative;
   margin-top: -100px;
   padding: 20px;
-
-}
-.foods-img input{
-  position: absolute;
-    height: 237px;
-    /* left: -124px; */
-    width: 281px;
-    right: -68px;
-    margin-left: 54px;
-    border-radius: 31px;
-    opacity: 0;
-
-}
-.foods-img img.img{
-  width: 70%;
-  height: auto; 
-  vertical-align: middle;
-  border-radius: 25px;
-  box-shadow: lightgrey 2px 3px 1px 0px;
+  transition: all .5s;
 }
 .ingredient-add h1.mat-h1{
   text-align: center;

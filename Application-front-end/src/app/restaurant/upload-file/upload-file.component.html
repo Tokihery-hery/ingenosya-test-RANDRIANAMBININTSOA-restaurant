@@ -1,0 +1,14 @@
+<div class="uploader">
+	<img mat-card-image class="img"  [src]="image?image:default_image" alt="Photo of foods">
+	<input type="file" (change)="onFileSelected($event)"  #uploadFile multiple>
+	<span class="attachment"  mat-icon-button><mat-icon  (click)="uploadFile.click()" title="Edit photo">edit</mat-icon></span>
+
+	<div class="progress">
+		  <mat-progress-bar class="progress-bar" mode="determinate"
+		                    [value]="56" *ngIf="uploadProgress">
+		                    <!--  -->
+		  </mat-progress-bar>
+		  <mat-icon mat-icon-button  class="cancel-upload" (click)="cancelUpload()" 
+	          *ngIf="uploadProgress" title="cancel upload"  color="warn">delete_forever</mat-icon>
+	</div>
+</div>
