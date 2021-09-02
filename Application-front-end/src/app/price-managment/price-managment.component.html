@@ -32,32 +32,35 @@
 					<mat-tab-group class="tabs">
 					  <mat-tab label="Price et Coût">
 					    <div class="content-content" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
-					    <app-upload-file class="file-upload" [image]="current_foods?.photo?current_foods?.photo:default_image"></app-upload-file>
-						<div class="detail-action">
-						<mat-accordion class="price-product" multi>
-						  <mat-expansion-panel>
-						    <mat-expansion-panel-header>
-						      <mat-panel-title>
-						        Coût production
-						      </mat-panel-title>
-						      <mat-panel-description>
-						        <strong>{{current_foods?.cout_production| currency:' Ar' }}</strong>
-						      </mat-panel-description>
-						    </mat-expansion-panel-header>
-						    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
-							<span class="mat-h3"> Determiner votre prix de vente</span>
-							    <mat-form-field appearance="fill">
-							      <mat-label>Prix Unitaire (Ariary)</mat-label>
-							      <input type="number" matInput >
-							    </mat-form-field>
+						<div class="detail-action" [formGroup]="priceForm">
+						<div class="price-product" multi formArrayName="price_variante">
+						        <h1 class="mat-h1">Coût production
+						        <strong>{{current_foods?.cout_production | currency:' Ar' }}</strong></h1>
+								<span class="mat-h3"> Determiner votre prix de vente</span>
+							    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center" >
+							    	<mat-list *ngFor="let variante of price_variante.controls;let i = index">
+							    	<mat-list-item [formGroupName]="i">
+									    <div>
+										    <mat-form-field appearance="fill" mat-line>
+										      <mat-label>Prix Unitaire (Ariary)</mat-label>
+										      <input type="number"  formControlName="price" matInput>
+										    </mat-form-field>
+										</div>
+										<div>
+										    <mat-form-field appearance="fill" mat-line>
+										      <mat-label>Promotion </mat-label>
+										      <input matInput type="text" (ngModelChange)='onChangeProduct($event)' formControlName="promotion" min="1">
+										    </mat-form-field>
+										</div>
+										<div>
+											<button   mat-icon-button class="add-ingredient" (click)="remove(i)" color="accent"><mat-icon style="color: green;">delete_forever</mat-icon></button>
+										</div>
+									</mat-list-item>
+								    </mat-list>										
+								</div>
+						</div>
+							<button mat-raised-button color="accent" (click)="addOtherPrice()">Add other</button>
 
-							    <mat-form-field appearance="fill">
-							      <mat-label>Entre à </mat-label>
-							      <input matInput type="number" min="1">
-							    </mat-form-field>
-							    </div>
-							  </mat-expansion-panel>
-							</mat-accordion>
 						</div>
 					    </div>
 					  </mat-tab>
@@ -82,8 +85,8 @@
 				</div>
 				<div class="act-footer" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="end">
 					<span class="menu-spacer"></span>
-				    <button mat-raised-button color="primary">Update</button>
-					<button mat-raised-button color="accent">cancel</button>
+				    <button mat-raised-button color="primary" (click)="updatedPrice()">Valider, et Enregistrer</button>
+					<button mat-raised-button color="accent" (click)="canceled()">cancel</button>
 				</div>
 			</div>
 		</div>
