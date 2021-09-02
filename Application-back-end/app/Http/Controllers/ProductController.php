@@ -59,6 +59,11 @@ class ProductController extends Controller
         $products = Product::find($request->product_id);
         return $products->update($request->all());
     }
-
+    public function getProductByName(Request $request)
+    {
+        $name = $request->query('name');
+        $result = Product::where('name', 'Lait jjj')->get('id');
+        return $result;
+    }
 
 }

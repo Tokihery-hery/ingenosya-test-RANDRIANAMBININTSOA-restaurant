@@ -17,17 +17,17 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['http://localhost:4200/'],
+    'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:4200'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['http://localhost:4200/'],
+    'allowed_headers' => ['*'],
 
-    'exposed_headers' => ["http://localhost:4200/"],
+    'exposed_headers' => ["*"],
 
-    'max_age' => 1,
+    'max_age' => 0,
 
     'supports_credentials' => false,
 

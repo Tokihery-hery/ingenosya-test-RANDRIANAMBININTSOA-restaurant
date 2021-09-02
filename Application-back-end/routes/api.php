@@ -46,13 +46,15 @@ Route::delete('/food/{food_id}/ingredient/{igd_id}', [FoodsController::class, 'd
 Route::post('/ingredients', [IngredientController::class, 'addIngredient']);
 Route::get('/ingredients', [FoodsController::class, 'getIngredient']);
 Route::get('/ingredient/{id}', [IngredientController::class, 'show']);
+Route::put('/ingredient/quantity/{igd_id}', [IngredientController::class, 'updateQtyOneIngredientOfFood']);
+
 
 //product
-
+Route::get('/product/name', [ProductController::class, 'getProductByName']);
 Route::get('/product', [ProductController::class, 'getProduct']);
 Route::put('/product/{product_id}', [ProductController::class, 'updateProduct']);
 Route::post('/product', [ProductController::class, 'createProduct']);
-Route::delete('/product', [ProductController::class, 'createProduct']);
+Route::delete('/product', [ProductController::class, 'deteleProduct']);
 
 
 //uploadfile

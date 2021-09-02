@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Food, Product, Ingredient, FoodsReturn } from "src/app/restaurant/interface"
+
 
 export interface Items{
   id:any;
@@ -15,15 +17,18 @@ export interface Items{
 export class FoodsCatalogueComponent implements OnInit {
 
   @Input() items:Items|any
+  @Output() getDetail:EventEmitter<any> = new EventEmitter()
+
   constructor() { 
   }
 
   ngOnInit(): void {
   }
-
-
-  addCart(id:any){
-    console.log(id)
+  vueDetail(items:Food){
+      this.getDetail.emit(items)
+  }
+    addCart(id:any){
+    this.getDetail.emit(id)
   }
 
 }

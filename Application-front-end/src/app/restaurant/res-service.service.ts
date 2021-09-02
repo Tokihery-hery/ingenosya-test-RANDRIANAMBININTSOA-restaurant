@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { API} from 'src/environments/environment'
+import { Observable, throwError } from 'rxjs';
 
+import { Food, Product, Ingredient, FoodsReturn } from './interface'
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +11,27 @@ import { API} from 'src/environments/environment'
 export class ResServiceService {
   headers = new HttpHeaders();
   fileImages:any[] =[]
-  constructor(private __http:HttpClient) { }
-
-
-  getAllFoods =()=>{
+  constructor(private __http:HttpClient) {
+    this.headers.append('Access-Control-Allow-Origin', '*'); 
+    this.headers.append('Access-Control-Allow-Credentials', 'true');
+  }
+  getAllFoods =():Observable<any>=>{
     return this.__http.get(`${API.URL}/foods`)
   }
-
-  createFood=  (obj:any) =>{
-      return this.__http.post(`${API.URL}/foods`, obj)
+  getFoodsDetails(id:any):Observable<Food>{
+    return this.__http.get(`${API.URL}/foods/details/${id}`)
   }
-  getListsProducts =() =>{
+  createFood=  (obj:any):Observable<any> =>{
+      return this.__http.post(`${API.URL}/foods`, obj, {headers:this.headers})
+  }
+  getListsProducts =():Observable<any> =>{
     return this.__http.get(`${API.URL}/product`)
   } 
+  getProductByName =($name:string) =>{
+    return this.__http.get(`${API.URL}/product/${$name}`)
+  } 
+  updateQuantityIngredient(ingredient_id:number, obj:any){
+    return this.__http.put(`${API.URL}/ingredient/quantity/${ingredient_id}`, obj, {headers:this.headers})
+
+  }
 }

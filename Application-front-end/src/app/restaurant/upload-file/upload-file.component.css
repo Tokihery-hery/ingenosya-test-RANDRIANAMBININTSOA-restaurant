@@ -29,12 +29,14 @@ img.img{
     margin: 0 3%;
     box-shadow: #eaeaea 0px 0px 12px 3px;
     position: inherit;
-
+    max-height: 315px;
+    min-height: 315px;
 }
 .uploader{
   position: relative;
-  width: inherit;
+  /*width: inherit;*/
   display: block;
+  width: 97%;
 }
 .progress{
   width: 70%;

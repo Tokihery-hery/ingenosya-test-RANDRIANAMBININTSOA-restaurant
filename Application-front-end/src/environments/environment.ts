@@ -9,7 +9,9 @@ export const environment = {
 
 export const API = {
   URL:"http://127.0.0.1:8000/api",
-  SOURCE_PATH_IMAGE:"http://127.0.0.1:8000/images/"
+  SOURCE_PATH_IMAGE:"http://127.0.0.1:8000/images/",
+  default_image:"/assets/foods_logo.jpg"
+
 }
 /*
  * For easier debugging in development mode, you can import the following file

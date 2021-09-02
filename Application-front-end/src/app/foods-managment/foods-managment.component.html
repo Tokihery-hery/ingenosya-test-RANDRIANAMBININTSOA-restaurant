@@ -12,7 +12,7 @@
       fxLayoutAlign="center">
 	  <form [formGroup]="foods" class="foods-form-content">
 	  	<div class="foods-img"  title="Food's picture" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
-	  		<app-upload-file ></app-upload-file>
+	  		<app-upload-file [image]="image" (sendImages)="sendImages($event)"></app-upload-file>
 	  	</div>
 				<div class="foods-info" fxLayout="row wrap" fxLayoutGap="10px"
       fxLayoutAlign="center">
@@ -29,6 +29,12 @@
 	  		<h1 class="mat-h1">Ajout ingredient</h1>
 	  		<ng-container *ngFor="let ingredientsForm of ingredients.controls; let i = index">
 		  		<div [formGroupName]="i" class="ingredient-form"  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
+
+		  			<input style="display: none;"
+					           aria-label="State"
+					           formControlName="product_neededs_id"
+					           (ngModelChange)= 'onChangeProduct($event)'
+					     >
 				    <mat-form-field class="example-full-width" appearance="fill">
 					    <mat-label>{{i+1}}- Ingredient name</mat-label>
 					    <input matInput
@@ -36,9 +42,9 @@
 					           [matAutocomplete]="auto"
 					           formControlName="product_name"
 					           (ngModelChange)= 'onChangeProduct($event)'
-					           >
+					     >
 					    <mat-autocomplete #auto="matAutocomplete">
-					      <mat-option *ngFor="let product of productListfiltered" value={{product.name}}>
+					      <mat-option *ngFor="let product of productListfiltered" (click)="getIdProduct(i, product.id)" value={{product.name}}>
 					        <img class="option-img" aria-hidden [src]="product.photo" height="25">
 					        <span>{{product.name}}</span> |
 					        <small>Dispo: {{product.quantity_available}}</small>

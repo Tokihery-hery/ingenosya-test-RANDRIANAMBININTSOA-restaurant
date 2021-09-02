@@ -16,8 +16,9 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->float('price');
+            $table->float('price')->default(0.0);
             $table->float('quantity')->default(0.0);
+            $table->text('product_name')->nullable();
             $table->float('cout_production')->default(0.0);
             $table->integer('foods_id')->unsigned();
             $table->foreign('foods_id')->references('id')->on('foods')->default(null);

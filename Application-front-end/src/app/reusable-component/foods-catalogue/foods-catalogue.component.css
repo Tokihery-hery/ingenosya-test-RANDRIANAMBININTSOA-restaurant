@@ -1,5 +1,7 @@
 .foods-cat .img img{
-	height: inherit;
+	max-height: 114px;
+	min-height: 114px;
+
 	width: inherit;	
 	box-shadow: lightgrey 0 0 6px 2px;
 	border-radius: 5px;
@@ -42,9 +44,11 @@
 	background: #ffffff7a;
     text-align: center;
     position: relative;
+    min-height: 104px;
 }
 h3.mat-h3{
 	font-weight: bold;
+	width: inherit;
 }
 .description .curency-unit{
 	color: yellowgreen;

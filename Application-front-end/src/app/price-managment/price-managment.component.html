@@ -1,34 +1,26 @@
 <div class="price-main">
 		<div  class="container" fxLayout="row wrap">
-			<div class="price-managment" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+			<div class="price-managment" [ngClass]="current_foods?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
 				<div class="header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
 					<app-search-bar class="search-bar" (search_fn)="search($event)"></app-search-bar>
 				</div>
-				<div class="sub-header" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+				<div class="sub-header" [ngClass]="current_foods?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
 					<mat-chip-list aria-label="Fish selection">
-					  <mat-chip>One fish</mat-chip>
-					  <mat-chip>Two fish</mat-chip>
-					  <mat-chip color="primary" selected>Primary fish</mat-chip>
-					  <mat-chip color="accent" selected>Accent fish</mat-chip>
-					  <mat-chip>Two fish</mat-chip>
-					  <mat-chip color="primary" selected>Primary fish</mat-chip>
-					  <mat-chip color="accent" selected>Accent fish</mat-chip>
-					  <mat-chip>Two fish</mat-chip>
 					  <mat-chip color="primary" selected>Primary fish</mat-chip>
 					  <mat-chip color="accent" selected>Accent fish</mat-chip>
 					</mat-chip-list>
 				</div>
-				<div class="content" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+				<div class="content" [ngClass]="current_foods?'min-width':'max-width'" *ngIf="foods" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
 					<span class="mat-h3">Lists menus</span>
 					<div class="list-foods" *ngFor="let food of foods">
-						<app-foods-catalogue [items]="food"></app-foods-catalogue>
+						<app-foods-catalogue (getDetail)="getDetail($event)" [items]="food"></app-foods-catalogue>
 					</div>
 				</div>
 			</div>
-			<div class="activity" [ngClass]="hasCurrentFoodsEdit?'show':'hidden'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">	
+			<div class="activity" [ngClass]="current_foods?'show':'hidden'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">	
 				<div class="act-header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
 					<span class="menu-spacer"></span>
-					<h3 class="mat-h3">Foods name</h3>
+					<h3 class="mat-h3">{{current_foods?.name}}</h3>
 					<span class="menu-spacer"></span>
 					<button mat-button [matMenuTriggerFor]="menu" color="accent"><mat-icon color="success">more_vert</mat-icon></button>
 					<mat-menu #menu="matMenu">
@@ -40,7 +32,7 @@
 					<mat-tab-group class="tabs">
 					  <mat-tab label="Price et Coût">
 					    <div class="content-content" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
-					    <app-upload-file class="file-upload" [image]="current_foods.images"></app-upload-file>
+					    <app-upload-file class="file-upload" [image]="current_foods?.photo?current_foods?.photo:default_image"></app-upload-file>
 						<div class="detail-action">
 						<mat-accordion class="price-product" multi>
 						  <mat-expansion-panel>
@@ -49,7 +41,7 @@
 						        Coût production
 						      </mat-panel-title>
 						      <mat-panel-description>
-						        <strong>{{70000| currency:' Ar' }}</strong>
+						        <strong>{{current_foods?.cout_production| currency:' Ar' }}</strong>
 						      </mat-panel-description>
 						    </mat-expansion-panel-header>
 						    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
@@ -73,14 +65,14 @@
 						<div class="detail-action">
 						<mat-list class="list-ingredient">
 						  <div mat-subheader>Liste Ingredient</div>
-						  <mat-list-item *ngFor="let food of foods">
+						  <mat-list-item *ngFor="let ingredient of current_foods?.ingredients">
 						    <mat-icon mat-list-icon>folder</mat-icon>
-						    <div mat-line>Lait</div>
-						    <div mat-line>{{food.price | currency:"Ar "}} x {{70}} l = {{80000 | currency:"Ar " }} </div>
+						    <div mat-line>{{ingredient?.product_name}}</div>
+						    <div mat-line>{{ingredient?.price | currency:"Ar "}} x {{ingredient?.quantity}} l = {{ingredient?.price * ingredient.quantity | currency:"Ar " }} </div>
 						    <div class="remove-add" fxLayout="row nowrap" fxLayoutGap="5px"
 						      fxLayoutAlign="center">
-								<button   mat-icon-button class="add-ingredient" color="accent"><mat-icon style="color: green;">add</mat-icon></button>
-								<button  mat-icon-button class="add-ingredient"  color="accent"><mat-icon style="color: red;">remove</mat-icon></button>
+								<button   mat-icon-button class="add-ingredient" (click)="addQuantity(ingredient.id)" color="accent"><mat-icon style="color: green;">add</mat-icon></button>
+								<button  mat-icon-button class="add-ingredient" (click)="removeQuantity(ingredient.id)" color="accent"><mat-icon style="color: red;">remove</mat-icon></button>
 							</div>
 						  </mat-list-item>
 						</mat-list>

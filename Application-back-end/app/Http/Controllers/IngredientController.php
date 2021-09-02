@@ -137,4 +137,10 @@ class IngredientController extends Controller
     {
         //
     }
+    public function updateQtyOneIngredientOfFood(Ingredient $ingredient, Request $request)
+    {
+        $id = $request->igd_id;
+        $ingredient->find($id)->update(["quantity"=>$request->newQuantity]);
+        return true;
+    }
 }
