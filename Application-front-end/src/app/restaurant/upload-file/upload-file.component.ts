@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ResServiceService} from "src/app/restaurant/res-service.service"
 import { HttpClient, HttpHeaders, HttpEventType } from '@angular/common/http'
 import { finalize } from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class UploadFileComponent implements OnInit {
   fileName = '';
   uploadProgress:number =0;
   uploadSub: any;
-  image:any
+  @Input() image:any
   SOURCE_PATH_IMAGE ="http://127.0.0.1:8000/images/"
   default_image = "/assets/foods_logo.jpg"
 

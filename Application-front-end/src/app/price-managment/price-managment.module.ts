@@ -6,21 +6,23 @@ import { PriceManagmentComponent } from './price-managment.component';
 import { MyNgModule } from 'src/app/myng/myng.module';
 import {MaterialModule} from "src/app/material/material.module"
 import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue/foods-catalogue.module'
-import { FoodsCatalogueComponent } from 'src/app/reusable-component/foods-catalogue/foods-catalogue.component'
+import { SearchBarModule } from 'src/app/reusable-component/search-bar/search-bar.module'
+import { UploadFileModule } from 'src/app/restaurant/upload-file/upload-file.module'
 
 
 
 @NgModule({
   declarations: [
-    PriceManagmentComponent,
-    // FoodsCatalogueComponent
+    PriceManagmentComponent
   ],
   imports: [
     CommonModule,
     PriceManagmentRoutingModule,
     MyNgModule,
     MaterialModule,
-    FoodsCatalogueModule
+    SearchBarModule,
+    FoodsCatalogueModule,
+    UploadFileModule
 
   ]
 })

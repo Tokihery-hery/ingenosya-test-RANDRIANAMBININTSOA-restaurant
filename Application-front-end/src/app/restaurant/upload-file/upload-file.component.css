@@ -47,7 +47,9 @@ img.img{
   position: relative;
   cursor: pointer;
 }
-
+.uploader:hover .attachment{
+  opacity: 1;
+}
 @media (max-width: 660px){
   .attachment{
     right: calc(11px - 1%);

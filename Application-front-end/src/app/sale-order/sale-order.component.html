@@ -4,17 +4,13 @@
 	      fxLayoutAlign="space-evenly">
 	<div class="list-food-available-order" fxLayout="row wrap" fxLayoutGap="0px"
 	      fxLayoutAlign="start">
-	      <div class="search-bar" fxLayout="row wrap" fxLayoutGap="0px"
+	      <div class="search" fxLayout="row wrap" fxLayoutGap="0px"
 	      fxLayoutAlign="start">
-			<mat-form-field appearance="outline">
-			    <mat-label>Enter name foods</mat-label>
-			    <input matInput  type="search" placeholder="Foods name">
-			    <mat-icon matSuffix>search</mat-icon>
-			    <mat-hint *ngIf="false">Hint</mat-hint>
-			  </mat-form-field>
+	      	<app-search-bar class="search-bar" (search_fn)="search($event)"></app-search-bar>
 			<span class="menu-spacer"></span>
-			  <button mat-button [matMenuTriggerFor]="menu" color="accent"><mat-icon color="success">more_vert</mat-icon></button>
-				<mat-menu #menu="matMenu">
+	      	
+			<button mat-button [matMenuTriggerFor]="menu" color="accent"><mat-icon color="success">more_vert</mat-icon></button>	
+			<mat-menu #menu="matMenu">
 				  <button mat-menu-item (click)="active()">Item 1</button>
 				  <button mat-menu-item>Item 2</button>
 			</mat-menu>

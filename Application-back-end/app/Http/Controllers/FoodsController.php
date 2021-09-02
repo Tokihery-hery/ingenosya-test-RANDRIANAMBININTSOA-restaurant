@@ -109,6 +109,7 @@ class FoodsController extends Controller
         return $result;
     }
     /**
+     * ok
      * Create new food
      *
      * @param  \Illuminate\Http\Request  $request
@@ -116,13 +117,20 @@ class FoodsController extends Controller
      */
     public function createFoods(Request $request)
     {
-       $response = Foods::create($request->all());
-
+       $response = Foods::create($request->food);
+       $res =[];
         $result = [
             'action'=>'created', 
             'response'=>$response
         ];
-        return $result;
+        $food_id = $response['id'];
+        $ingredients = $request->ingredients;
+        $ingredients['foods_id'] = $food_id;
+           for ($i=0; $i < count($ingredients) -1; $i++) { 
+            $l= IngredientController::createIngredient($food_id, $ingredients[$i]);
+             array_push($res, $l);
+        }
+        return $res;
     }
 
     /**

@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
-    // UploadFileComponent,
+    UploadFileComponent,
   ],
   imports: [
     CommonModule,
@@ -21,6 +21,9 @@ import { MatCardModule } from '@angular/material/card';
     MatProgressBarModule,
     MatIconModule,
     MatCardModule
+  ],
+  exports:[
+  UploadFileComponent,
   ]
 })
 export class UploadFileModule { }

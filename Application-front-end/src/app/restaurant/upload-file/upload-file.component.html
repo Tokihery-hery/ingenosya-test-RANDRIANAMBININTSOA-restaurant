@@ -1,4 +1,4 @@
-<div class="uploader">
+<div class="uploader" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
 	<img mat-card-image class="img"  [src]="image?image:default_image" alt="Photo of foods">
 	<input type="file" (change)="onFileSelected($event)"  #uploadFile multiple>
 	<span class="attachment"  mat-icon-button><mat-icon  (click)="uploadFile.click()" title="Edit photo">edit</mat-icon></span>

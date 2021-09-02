@@ -6,6 +6,11 @@ export const environment = {
   production: false
 };
 
+
+export const API = {
+  URL:"http://127.0.0.1:8000/api",
+  SOURCE_PATH_IMAGE:"http://127.0.0.1:8000/images/"
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

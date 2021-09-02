@@ -25,10 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //food
 Route::get('/foods', [FoodsController::class, 'getAllFoods']);
+Route::post('/foods', [FoodsController::class, 'createFoods']);
 Route::get('/foods/details/{food_id}', [FoodsController::class, 'getDetailsFoods']);
 Route::get('/food/with_ingredient/{food_id}', [FoodsController::class, 'getOneFoodWithIngredient']);
 Route::get('/food/without_ingredient/{food_id}', [FoodsController::class, 'getOneFoodWithoutIngredient']);
-Route::post('/foods', [FoodsController::class, 'store']);
+// Route::post('/foods', [FoodsController::class, 'store']);
 Route::put('/foods/{food_id}', [FoodsController::class, 'updateOneFood']);
 
 //input obligatory {'product_neededs_id': value, 'foods_id':value}

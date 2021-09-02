@@ -24,7 +24,11 @@ import { UploadFileModule } from './restaurant/upload-file/upload-file.module';
 import {VisualizeIngredientNeedsModule} from 'src/app/reusable-component/visualize-ingredient-needs/visualize-ingredient-needs.module'
 
 import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue/foods-catalogue.module'
+import { SearchBarModule } from 'src/app/reusable-component/search-bar/search-bar.module'
 
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -32,8 +36,6 @@ import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue
   declarations: [
     AppComponent,
     ToolsNavbarComponent,
-    // FoodsCatalogueComponent
-
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,9 @@ import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue
     UploadFileModule,
     VisualizeIngredientNeedsModule,
     FoodsCatalogueModule,
+    SearchBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   providers: [HttpClientModule, HttpClient],

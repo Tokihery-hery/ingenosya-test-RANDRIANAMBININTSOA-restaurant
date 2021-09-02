@@ -165,4 +165,7 @@ export class SaleOrderComponent implements OnInit {
     this.isActif = true
   }
 
+  search($event:any){
+    console.log($event)
+  }
 }

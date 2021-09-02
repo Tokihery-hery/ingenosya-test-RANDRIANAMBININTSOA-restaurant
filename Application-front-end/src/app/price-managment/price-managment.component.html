@@ -1,17 +1,98 @@
-<div class="price-main" fxLayout="row wrap" fxLayoutGap="10px"   fxLayoutAlign="center">
-		<div class="header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
-
-		</div>
-		<div class="price-managment" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
-
-			<div class="list-menu" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start" >
-				<div class="list-foods" *ngFor="let food of foods">
-					<app-foods-catalogue [items]="food"></app-foods-catalogue>
-				</div>		
+<div class="price-main">
+		<div  class="container" fxLayout="row wrap">
+			<div class="price-managment" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+				<div class="header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+					<app-search-bar class="search-bar" (search_fn)="search($event)"></app-search-bar>
+				</div>
+				<div class="sub-header" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+					<mat-chip-list aria-label="Fish selection">
+					  <mat-chip>One fish</mat-chip>
+					  <mat-chip>Two fish</mat-chip>
+					  <mat-chip color="primary" selected>Primary fish</mat-chip>
+					  <mat-chip color="accent" selected>Accent fish</mat-chip>
+					  <mat-chip>Two fish</mat-chip>
+					  <mat-chip color="primary" selected>Primary fish</mat-chip>
+					  <mat-chip color="accent" selected>Accent fish</mat-chip>
+					  <mat-chip>Two fish</mat-chip>
+					  <mat-chip color="primary" selected>Primary fish</mat-chip>
+					  <mat-chip color="accent" selected>Accent fish</mat-chip>
+					</mat-chip-list>
+				</div>
+				<div class="content" [ngClass]="hasCurrentFoodsEdit?'min-width':'max-width'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+					<span class="mat-h3">Lists menus</span>
+					<div class="list-foods" *ngFor="let food of foods">
+						<app-foods-catalogue [items]="food"></app-foods-catalogue>
+					</div>
+				</div>
 			</div>
+			<div class="activity" [ngClass]="hasCurrentFoodsEdit?'show':'hidden'" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">	
+				<div class="act-header" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">
+					<span class="menu-spacer"></span>
+					<h3 class="mat-h3">Foods name</h3>
+					<span class="menu-spacer"></span>
+					<button mat-button [matMenuTriggerFor]="menu" color="accent"><mat-icon color="success">more_vert</mat-icon></button>
+					<mat-menu #menu="matMenu">
+						  <button mat-menu-item (click)="active()">Item 1</button>
+						  <button mat-menu-item>Item 2</button>
+					</mat-menu>
+				</div>
+				<div class="act-content" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
+					<mat-tab-group class="tabs">
+					  <mat-tab label="Price et Coût">
+					    <div class="content-content" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
+					    <app-upload-file class="file-upload" [image]="current_foods.images"></app-upload-file>
+						<div class="detail-action">
+						<mat-accordion class="price-product" multi>
+						  <mat-expansion-panel>
+						    <mat-expansion-panel-header>
+						      <mat-panel-title>
+						        Coût production
+						      </mat-panel-title>
+						      <mat-panel-description>
+						        <strong>{{70000| currency:' Ar' }}</strong>
+						      </mat-panel-description>
+						    </mat-expansion-panel-header>
+						    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
+							<span class="mat-h3"> Determiner votre prix de vente</span>
+							    <mat-form-field appearance="fill">
+							      <mat-label>Prix Unitaire (Ariary)</mat-label>
+							      <input type="number" matInput >
+							    </mat-form-field>
 
-			<div class="history-menu" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start">	
-					helellele
+							    <mat-form-field appearance="fill">
+							      <mat-label>Entre à </mat-label>
+							      <input matInput type="number" min="1">
+							    </mat-form-field>
+							    </div>
+							  </mat-expansion-panel>
+							</mat-accordion>
+						</div>
+					    </div>
+					  </mat-tab>
+					  <mat-tab label="Ingredients">
+						<div class="detail-action">
+						<mat-list class="list-ingredient">
+						  <div mat-subheader>Liste Ingredient</div>
+						  <mat-list-item *ngFor="let food of foods">
+						    <mat-icon mat-list-icon>folder</mat-icon>
+						    <div mat-line>Lait</div>
+						    <div mat-line>{{food.price | currency:"Ar "}} x {{70}} l = {{80000 | currency:"Ar " }} </div>
+						    <div class="remove-add" fxLayout="row nowrap" fxLayoutGap="5px"
+						      fxLayoutAlign="center">
+								<button   mat-icon-button class="add-ingredient" color="accent"><mat-icon style="color: green;">add</mat-icon></button>
+								<button  mat-icon-button class="add-ingredient"  color="accent"><mat-icon style="color: red;">remove</mat-icon></button>
+							</div>
+						  </mat-list-item>
+						</mat-list>
+						</div>
+					  </mat-tab>
+					</mat-tab-group>
+				</div>
+				<div class="act-footer" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="end">
+					<span class="menu-spacer"></span>
+				    <button mat-raised-button color="primary">Update</button>
+					<button mat-raised-button color="accent">cancel</button>
+				</div>
 			</div>
 		</div>
 </div>

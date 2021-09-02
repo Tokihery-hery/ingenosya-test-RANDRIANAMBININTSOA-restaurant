@@ -20,6 +20,10 @@
 					      <mat-label>Repas Name</mat-label>
 					      <input matInput formControlName="name" placeholder="Repas Name">
 					    </mat-form-field>
+					    <mat-form-field appearance="fill">
+					      <mat-label>Description</mat-label>
+					      <input matInput formControlName="description" placeholder="Description repas">
+					    </mat-form-field>
 				</div>
 	  	<ng-container class="ingredient-add" formArrayName="ingredients">
 	  		<h1 class="mat-h1">Ajout ingredient</h1>
@@ -34,8 +38,8 @@
 					           (ngModelChange)= 'onChangeProduct($event)'
 					           >
 					    <mat-autocomplete #auto="matAutocomplete">
-					      <mat-option *ngFor="let product of productListfiltered" [value]="product.name">
-					        <img class="option-img" aria-hidden [src]="product.flag" height="25">
+					      <mat-option *ngFor="let product of productListfiltered" value={{product.name}}>
+					        <img class="option-img" aria-hidden [src]="product.photo" height="25">
 					        <span>{{product.name}}</span> |
 					        <small>Dispo: {{product.quantity_available}}</small>
 					      </mat-option>
@@ -45,7 +49,6 @@
 					      </mat-option>
 					    </mat-autocomplete>
 					 </mat-form-field>
-
 				    <mat-form-field appearance="fill">
 					    <mat-label>Quantity</mat-label>
 					    <input type="number" 
@@ -67,22 +70,5 @@
     		<button mat-raised-button color="primary" (click)="addAndNewFood()">Add and Create new</button>
     		<button mat-raised-button (click)="addAndSeeFoodDetails()">Add and See info</button>
     </div>
-	</div>
-	<div fxLayout="row wrap" fxLayoutGap="10px"
-      fxLayoutAlign="center">
-      <app-visualize-ingredient-needs [data]="data"></app-visualize-ingredient-needs>
-	 
-	</div>
-
-		<div fxLayout="row wrap" fxLayoutGap="10px"
-      fxLayoutAlign="center">
-      <app-visualize-ingredient-needs [data]="data"></app-visualize-ingredient-needs>
-	 
-	</div>
-
-			<div fxLayoutGap="10px"
-      fxLayoutAlign="center">
-      <!-- <app-foods-catalogue [items]="items"></app-foods-catalogue> -->
-	 
 	</div>
 </div>

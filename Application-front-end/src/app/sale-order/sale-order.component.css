@@ -188,17 +188,15 @@ li{
 
 /*//search bar*/
 
-.search-bar, .footer-bar{
+.search, .footer-bar{
     background: whitesmoke;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    width: 100%;
     border-top-left-radius: 21px;
     border-top-right-radius: 21px;
-
-
+    width: 100%;
 }
 .title-foods{
 	width: 100%;

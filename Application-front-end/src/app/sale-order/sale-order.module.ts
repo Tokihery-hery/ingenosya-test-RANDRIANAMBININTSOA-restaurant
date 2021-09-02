@@ -7,19 +7,21 @@ import { SaleOrderComponent } from './sale-order.component';
 import { MyNgModule } from 'src/app/myng/myng.module';
 import {MaterialModule} from "src/app/material/material.module"
 import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue/foods-catalogue.module'
+import { SearchBarModule } from 'src/app/reusable-component/search-bar/search-bar.module'
+
 
 
 @NgModule({
   declarations: [
-    SaleOrderComponent,
-    // FoodsCatalogueComponent
+    SaleOrderComponent
   ],
   imports: [
     CommonModule,
     SaleOrderRoutingModule,
     MyNgModule,
     MaterialModule,
-    FoodsCatalogueModule
+    FoodsCatalogueModule,
+    SearchBarModule
   ]
 })
 export class SaleOrderModule { }

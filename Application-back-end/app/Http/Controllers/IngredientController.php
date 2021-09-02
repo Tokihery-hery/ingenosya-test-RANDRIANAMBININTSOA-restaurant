@@ -24,6 +24,7 @@ class IngredientController extends Controller
         $result;
         $ingredient_data["foods_id"] = $food_id; 
         $product_id = $ingredient_data["product_neededs_id"];
+
         $ingredient = Ingredient::where('foods_id', $food_id);
         $exitsProduct = $ingredient->where('product_neededs_id',  $product_id);
         if($exitsProduct->exists()){
@@ -45,7 +46,13 @@ class IngredientController extends Controller
         }
         return $result;
     }
-
+    public static function createIngredient($food_id, $ingredients_data)
+    {
+        // $data =['foods_id'=>0];
+        $ingredients_data['foods_id'] = $food_id;
+        // dd($ingredients_data);
+        return Ingredient::create($ingredients_data);
+    }
      /**
      * remove or update Ingredient
      *

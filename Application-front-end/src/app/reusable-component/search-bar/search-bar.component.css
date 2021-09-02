@@ -1,0 +1,30 @@
+.search{
+	position: relative;
+	width: 100%;
+	margin:0 10px;
+}
+form.search input{
+	min-height: 30px;
+	max-width: 350px;
+	padding-left: 50px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	box-shadow: ghostwhite 0 0 0px 2px;
+	transition: all .5s;
+}
+form.search span{
+	position: absolute;
+	top: 5px;
+	left: 16px;
+}
+
+form.search input:focus{
+	box-shadow: gainsboro 0 0 1px 2px;
+
+}
+@media screen and (max-width: 500px){
+	form.search input{
+		width: calc(10% - 50px);
+	}
+}

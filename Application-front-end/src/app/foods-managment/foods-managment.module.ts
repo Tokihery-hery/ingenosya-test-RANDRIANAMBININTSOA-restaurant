@@ -7,7 +7,7 @@ import { FoodsManagmentComponent } from './foods-managment.component';
 import { MyNgModule } from 'src/app/myng/myng.module';
 import {MaterialModule} from "src/app/material/material.module"
 import { SafePipe } from 'src/app/safe.pipe'
-import { UploadFileComponent } from 'src/app/restaurant/upload-file/upload-file.component'
+import { UploadFileModule } from 'src/app/restaurant/upload-file/upload-file.module'
 import {VisualizeIngredientNeedsComponent} from 'src/app/reusable-component/visualize-ingredient-needs/visualize-ingredient-needs.component'
 import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue/foods-catalogue.module'
 
@@ -17,16 +17,15 @@ import { FoodsCatalogueModule } from 'src/app/reusable-component/foods-catalogue
   declarations: [
     FoodsManagmentComponent,
     SafePipe,
-    UploadFileComponent,
     VisualizeIngredientNeedsComponent,
-    // FoodsCatalogueComponent
   ],
   imports: [
     CommonModule,
     MyNgModule,
     FoodsManagmentRoutingModule,
     MaterialModule,
-    FoodsCatalogueModule
+    FoodsCatalogueModule,
+    UploadFileModule
 
   ]
 })

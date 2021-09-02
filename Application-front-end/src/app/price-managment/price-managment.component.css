@@ -1,19 +1,153 @@
 .price-main{
-	width: calc(100% - 21px);
-	margin: 20px;
+	margin: 20px auto;
 	position: relative;
+	/*width: 100%;*/
+	background: whitesmoke;
+	width: fit-content;
+	border-radius: 21px;
+	padding: none;
+	padding-bottom: 7px !important;
+	max-width: 1256px;
 }
-.header{
-	box-shadow: lightgrey 0 0 4px 1px;
+.header, .act-header{
 	height: 45px;
 	margin: 5px auto;
+	align-items: center !important;
+	width: 100%;
 }
-.price-managment, .header{
-	background: white;
-	box-shadow: lightgrey 0 0 4px 1px;
-	margin: auto;
-	width: inherit;
+.act-header{
+	margin-top: 30px !important;
+	box-shadow: whitesmoke 0 0 4px 1px;
+}
+.sub-header{
+	height: 45px;
+	margin: 5px auto;
+	align-items: center !important;
+	width: 100%;
 }
 .price-managment{
-	height: calc(100vh - 250px);
+	background: inherit;
+	margin: 0px auto;
+	width: 100%;
+}
+.price-managment{
+    padding: 10px;
+    max-width: 50%;
+    margin: 10px auto;
+}
+.max-width{
+	max-width: 96% !important;
+	margin: auto;
+}
+.min-width{
+	/*max-width: initial;*/
+}
+.activity{
+	max-height: 889px;
+	overflow-y: auto;
+	width: 0%;
+	transition: all .5s;
+}
+.show{
+	width: 50%;
+}
+.hidden{
+	width: 0%;
+}
+.content{
+	min-width: 579px;
+	max-height: 700px;
+	overflow-y: auto;
+	align-items: center !important;
+	max-width: min-content;
+}
+.sub-header{
+	min-width: 579px;
+	max-width: min-content;
+	overflow-x: auto;
+	align-items: center !important;
+	margin: initial;
+
+}
+.list-foods{
+	margin-top: 12px;
+}
+.list-menu{
+	/*max-width: 300px;*/
+	background: red;
+}
+
+.search{
+	padding: 10px;
+}
+.search-bar{
+	width: 100% !important;
+}
+.container{
+	width: 100%;
+	margin: auto;
+}
+.act-foods-image{
+	position: relative;
+}
+.act-foods-image img{
+	  margin: 0px auto;
+    min-height: 351px;
+    max-width: initial;
+}
+.act-content{
+	width: -webkit-fill-available;
+	margin: auto;
+}
+mat-tab, .tabs{
+	padding: 20px;
+}
+.content-content{
+	width: -webkit-fill-available;
+	margin-top: 10px;
+}
+
+.act-footer{
+	height: 45px;
+	width: 100%;
+	padding: 0px 20px;
+}
+.file-upload{
+	  margin: auto;
+    width: inherit;
+}
+.detail-action{
+	min-width: 400px;
+	max-width: 400px;
+	padding: 10px;
+}
+.list-ingredient{
+		max-height: 500px;
+		overflow-y: auto;
+}
+span.mat-h3{
+	width: 100%;
+	font-size: 34px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+.tabs{
+	max-width: inherit;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px lightgrey; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background:yellowgreen;
 }
