@@ -19,4 +19,8 @@ class Foods extends Model
     {
         return $this->hasMany(Ingredient::class);
     }
+        public function all_price()
+    {
+        return $this->hasMany(Price::class);
+    }
 }

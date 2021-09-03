@@ -36,8 +36,21 @@
 						<div class="price-product" multi formArrayName="price_variante">
 						        <h1 class="mat-h1">Coût production
 						        <strong>{{current_foods?.cout_production | currency:' Ar' }}</strong></h1>
-								<span class="mat-h3"> Determiner votre prix de vente</span>
-							    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center" >
+								<span class="mat-h3" *ngIf="isAddPrice"> Determiner votre prix de vente</span>
+								<span class="mat-h3" *ngIf="!isAddPrice">Votre prix de vente</span>
+
+								<div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center" *ngIf="!isAddPrice && variante_price">
+							    	<mat-list *ngFor="let price of variante_price;let i = index">
+							    	<mat-list-item>
+									    <div>
+										      <mat-label>Prix Unitaire (Ariary) : {{price.price}}</mat-label>
+										      <mat-label>Intervale : {{price.promo}}</mat-label>										      
+										</div>
+									</mat-list-item>
+								    </mat-list>										
+								</div>
+
+							    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center" *ngIf="isAddPrice">
 							    	<mat-list *ngFor="let variante of price_variante.controls;let i = index">
 							    	<mat-list-item [formGroupName]="i">
 									    <div>
@@ -49,7 +62,7 @@
 										<div>
 										    <mat-form-field appearance="fill" mat-line>
 										      <mat-label>Promotion </mat-label>
-										      <input matInput type="text" (ngModelChange)='onChangeProduct($event)' formControlName="promotion" min="1">
+										      <input matInput type="text" (ngModelChange)='onChangeProduct($event)' formControlName="promo" min="1">
 										    </mat-form-field>
 										</div>
 										<div>
@@ -59,9 +72,12 @@
 								    </mat-list>										
 								</div>
 						</div>
-							<button mat-raised-button color="accent" (click)="addOtherPrice()">Add other</button>
-
 						</div>
+
+					    </div>
+					    <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="center">
+					    	<button mat-raised-button color="accent" (click)="addOtherPrice()">Ajouter des prix</button>
+					    	<button mat-raised-button color="warn" *ngIf="isAddPrice" (click)="cancelAddOtherPrice()">Annuler</button>
 					    </div>
 					  </mat-tab>
 					  <mat-tab label="Ingredients">
@@ -83,9 +99,9 @@
 					  </mat-tab>
 					</mat-tab-group>
 				</div>
-				<div class="act-footer" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="end">
+				<div class="act-footer" fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="end" *ngIf="isAddPrice">
 					<span class="menu-spacer"></span>
-				    <button mat-raised-button color="primary" (click)="updatedPrice()">Valider, et Enregistrer</button>
+				    <button mat-raised-button color="primary"  (click)="validateSave()">Valider, et Enregistrer</button>
 					<button mat-raised-button color="accent" (click)="canceled()">cancel</button>
 				</div>
 			</div>

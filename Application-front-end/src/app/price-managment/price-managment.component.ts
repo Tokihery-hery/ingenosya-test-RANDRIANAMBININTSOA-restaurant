@@ -21,27 +21,34 @@ export class PriceManagmentComponent implements OnInit {
   current_foods:Food|any   
   foods:Food[]|any
   priceForm:FormGroup
+  variante_price:any
   default_image = API.default_image 
+  isAddPrice =false
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private res:ResServiceService,
     private fb:FormBuilder) {
     this.priceForm = this.fb.group({
-      "price_variante": this.fb.array([]) ,
+      "price_variante": this.fb.array([])
       })
     }
 
   ngOnInit(): void {
     this.foods = this.res.getAllFoods().subscribe(data=>{
         this.foods = data?.data
-        console.log(this.foods)
+        // console.log(this.foods)
       })
     const id = this.route.snapshot.paramMap.get('id')!
-    this.res.getFoodsDetails(id).subscribe(data=>{
-      this.current_foods = data
-    })
-
+    if(id){
+      this.res.getFoodsDetails(id).subscribe(data=>{
+        this.current_foods = data
+      })
+    }
+    // console.log(this.current_foods)
+  }
+  get foods_id(){
+    return this.current_foods.id
   }
   search($event:any){
     console.log($event)
@@ -51,6 +58,8 @@ export class PriceManagmentComponent implements OnInit {
   }
   getDetail($event:Food){
     this.current_foods = $event 
+    this.getPrice()
+
     console.log($event)
   }
   addQuantity(ingredient_id:number){
@@ -83,18 +92,24 @@ export class PriceManagmentComponent implements OnInit {
   get price_variante(){
     return this.priceForm.controls['price_variante'] as FormArray
   }
-  updatedPrice(){
 
-  }
   canceled(){
 
   }
+  getPrice(){
+    if(this.foods_id){
+          this.res.getPrice(this.foods_id).subscribe((data)=>{
+            this.variante_price =  data
+        })
+    }
+  }
   addOtherPrice(){
-    this.increment+=(parseInt(this.inputPromCurrent?.split('-')[1])*1) + 9
+    this.isAddPrice = true
+    this.increment=(parseInt(this.inputPromCurrent?.split('-')[1])*1) + 9
     let promo =this.inputPromCurrent?.split('-')[1] +'-'+this.increment
     const othersFormPrice = this.fb.group({
       "price":['', Validators.required],
-      "promotion":[promo, Validators.required],
+      "promo":[promo, Validators.required],
       })
     this.inputPromCurrent = promo
 
@@ -108,7 +123,20 @@ export class PriceManagmentComponent implements OnInit {
     console.log(variante)
 
   }
+  validateSave(){
+    let prices = this.price_variante.getRawValue()
+    prices.map(price=>price.foods_id = this.foods_id)
+    this.res.addOtherPrice(prices).subscribe((data)=>{
+      console.log(data)
+      this.isAddPrice = false
+    })
+    
+  }
   remove(ingredientsIndex:number){
     this.price_variante.removeAt(ingredientsIndex)
+  }
+  cancelAddOtherPrice(){
+    this.isAddPrice = false
+    this.getPrice()
   }
 }

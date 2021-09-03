@@ -3,6 +3,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PriceController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,11 @@ Route::delete('/product', [ProductController::class, 'deteleProduct']);
 
 //uploadfile
 Route::post('/upload', [Controller::class, 'uploadimage']);
+
+//price
+Route::put('/add-price', [PriceController::class, 'addPrice']);
+Route::get('/price/{food_id}', [PriceController::class, 'getPrice']);
+
 
 
 

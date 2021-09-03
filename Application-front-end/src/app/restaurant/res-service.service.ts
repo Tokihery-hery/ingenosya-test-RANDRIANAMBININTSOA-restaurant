@@ -32,6 +32,11 @@ export class ResServiceService {
   } 
   updateQuantityIngredient(ingredient_id:number, obj:any){
     return this.__http.put(`${API.URL}/ingredient/quantity/${ingredient_id}`, obj, {headers:this.headers})
-
+  }
+  addOtherPrice(obj:any){
+    return this.__http.put(`${API.URL}/add-price`, obj, {headers:this.headers})
+  }
+  getPrice(foods_id:any){
+    return this.__http.get(`${API.URL}/price/${foods_id}`)
   }
 }
